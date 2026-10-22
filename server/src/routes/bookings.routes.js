@@ -9,7 +9,6 @@ import { query } from '../config/database.js';
 import { hashToken } from '../utils/tokens.js';
 import { notFound } from '../utils/httpError.js';
 
-// Public, token-authenticated endpoints. Tokens are random 256-bit values; only their hash is stored.
 const router = Router();
 router.use(bookingLimiter);
 const ok = (res, data, status = 200) => res.status(status).json({ success: true, data });

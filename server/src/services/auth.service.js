@@ -8,7 +8,6 @@ import { audit } from '../utils/audit.js';
 import { HttpError, badRequest, unauthorized, forbidden } from '../utils/httpError.js';
 
 const ROUNDS = env.NODE_ENV === 'test' ? 4 : 11;
-// Constant-time-ish dummy hash so unknown emails cost the same as wrong passwords.
 const DUMMY = bcrypt.hashSync('not-a-real-password', ROUNDS);
 
 export const hashPassword = (pw) => bcrypt.hash(pw, ROUNDS);
@@ -41,7 +40,6 @@ export async function login({ email, password }, ip) {
   return u;
 }
 
-/** Password reset and invitation acceptance share one token mechanism. */
 export async function createResetToken(userId, purpose = 'reset', hours = 1) {
   const token = randomToken(32);
   await query(`UPDATE password_reset_tokens SET used_at = now() WHERE user_id = $1 AND used_at IS NULL AND purpose = $2`, [userId, purpose]);
@@ -60,7 +58,6 @@ export async function forgotPassword(email) {
     subject: 'Reset your Recruitly password',
     html: renderEmail({ title: 'Reset your password', intro: 'Use the button below to choose a new password. The link expires in 1 hour. If you did not request this, you can ignore this email.', cta: { label: 'Choose a new password', url } }),
   });
-  // Development convenience only, when email is not configured. Never active in production.
   if (env.DEMO_MODE && !env.smtpEnabled && !env.isProd) out.devResetLink = url;
   return out;
 }
@@ -112,12 +109,7 @@ export function googleLoginUrl(state) {
   return oauthClient(env.googleCallbackUrl).generateAuthUrl({ access_type: 'online', scope: LOGIN_SCOPES, state, prompt: 'select_account' });
 }
 
-/**
- * Account-linking rules:
- *  1. known google_id → that account
- *  2. otherwise a VERIFIED Google email matching an existing account links to it (never changes its role)
- *  3. otherwise a new account is created as a *candidate*. Privileged roles are never granted through Google.
- */
+
 export async function googleCallback(code, ip) {
   if (!env.googleOAuthEnabled) throw new HttpError(501, 'Google sign-in is not configured on this server.');
   const client = oauthClient(env.googleCallbackUrl);
