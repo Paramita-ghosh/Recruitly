@@ -1,8 +1,8 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
-import { useAuth, HOME } from '../../context/AuthContext';
-import { DriveProvider } from '../../context/DriveContext';
-import { PageSkeleton } from '../ui';
-import AppLayout from './AppLayout';
+// import { useAuth, HOME } from '../../context/AuthContext';
+// import { DriveProvider } from '../../context/DriveContext';
+ import { PageSkeleton } from '../ui';
+// import AppLayout from './AppLayout';
 
 export function Splash() {
   return <div className="mx-auto max-w-4xl p-10"><PageSkeleton /></div>;

@@ -3,7 +3,7 @@ import { Navigate, Route, Routes, useParams, useSearchParams } from 'react-route
 import ProtectedRoute, { RedirectHome, Splash } from './components/layout/ProtectedRoute';
 //import NotificationsPage from './components/shared/NotificationsPage';
 
-//import Landing from './pages/public/Landing';
+import Landing from './pages/public/Landing';
 import Login from './pages/public/Login';
 import Register from './pages/public/Register';
 import ForgotPassword from './pages/public/ForgotPassword';
@@ -65,7 +65,7 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="/book/:token" element={<Booking />} />
+        {/* <Route path="/book/:token" element={<Booking />} /> */}
         {/* <Route path="/demo-meeting/:id" element={<DemoMeeting />} /> */}
         <Route path="/auth/callback" element={<AuthCallback />} />
         {/* <Route path="/app" element={<RedirectHome />} /> */}
