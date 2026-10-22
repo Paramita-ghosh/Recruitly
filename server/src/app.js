@@ -15,7 +15,7 @@ import usersRoutes from './routes/users.routes.js';
 // import interviewersRoutes from './routes/interviewers.routes.js';
 // import availabilityRoutes from './routes/availability.routes.js';
 // import schedulingRoutes from './routes/scheduling.routes.js';
-import bookingsRoutes from './routes/bookings.routes.js';
+// import bookingsRoutes from './routes/bookings.routes.js';
 // import interviewsRoutes from './routes/interviews.routes.js';
 // import evaluationsRoutes from './routes/evaluations.routes.js';
 // import notificationsRoutes from './routes/notifications.routes.js';
@@ -34,7 +34,7 @@ export function createApp() {
 
   app.get('/api/health', (_req, res) => res.json({ success: true, data: { status: 'ok', time: new Date().toISOString() } }));
   app.use('/api/auth', authRoutes);
-  app.use('/api/bookings', bookingsRoutes);
+//   app.use('/api/bookings', bookingsRoutes);
 //   app.use('/api/calendar', calendarRoutes);
 //   app.use('/api/companies', companiesRoutes);
 //   app.use('/api/availability', availabilityRoutes);

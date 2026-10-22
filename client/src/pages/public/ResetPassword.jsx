@@ -6,7 +6,6 @@ import { Button, Field } from '../../components/ui';
 import { useToast } from '../../context/ToastContext';
 import AuthShell from './AuthShell';
 
-/** Used for both "forgot password" links and first-time invitation links (?invite=1). */
 export default function ResetPassword() {
   const [params] = useSearchParams();
   const token = params.get('token') || '';

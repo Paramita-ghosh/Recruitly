@@ -8,7 +8,6 @@ export function Splash() {
   return <div className="mx-auto max-w-4xl p-10"><PageSkeleton /></div>;
 }
 
-/** Requires a signed-in user with one of `roles`; anyone else is redirected to their own area (or login). */
 export default function ProtectedRoute({ roles }) {
   const { user, loading } = useAuth();
   const loc = useLocation();

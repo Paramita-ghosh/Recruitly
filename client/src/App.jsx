@@ -8,7 +8,7 @@ import Login from './pages/public/Login';
 import Register from './pages/public/Register';
 import ForgotPassword from './pages/public/ForgotPassword';
 import ResetPassword from './pages/public/ResetPassword';
-import Booking from './pages/public/Booking';
+// import Booking from './pages/public/Booking';
 //import DemoMeeting from './pages/public/DemoMeeting';
 import AuthCallback from './pages/public/AuthCallback';
 //import NotFound from './pages/public/NotFound';

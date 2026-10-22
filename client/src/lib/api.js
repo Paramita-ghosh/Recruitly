@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-// All requests carry the session cookie (HTTP-only, set by the server) and the CSRF header the server requires.
-// No secrets live in the frontend – only the public API base URL (empty in dev = same origin through the Vite proxy).
 const baseURL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
 
 export const api = axios.create({
@@ -22,7 +20,6 @@ api.interceptors.response.use(
   },
 );
 
-/** GET helper that unwraps { success, data }. */
 export const get = (url, params) => api.get(url, { params }).then((r) => r.data.data);
 export const post = (url, body) => api.post(url, body).then((r) => r.data.data);
 export const put = (url, body) => api.put(url, body).then((r) => r.data.data);
@@ -30,7 +27,6 @@ export const patch = (url, body) => api.patch(url, body).then((r) => r.data.data
 export const del = (url) => api.delete(url).then((r) => r.data.data);
 export const apiUrl = (path) => `${baseURL}/api${path}`;
 
-/** Downloads a file from an authenticated endpoint (blob) and triggers a browser save. */
 export async function download(path, filename) {
   const r = await api.get(path, { responseType: 'blob' });
   const url = URL.createObjectURL(r.data);

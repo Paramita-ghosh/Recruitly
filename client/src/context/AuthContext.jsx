@@ -40,7 +40,7 @@ export function AuthProvider({ children }) {
     return d.user;
   };
   const logout = async () => {
-    try { await post('/auth/logout'); } catch { /* cookie may already be gone */ }
+    try { await post('/auth/logout'); } catch { }
     disconnectSocket();
     setUser(null);
   };

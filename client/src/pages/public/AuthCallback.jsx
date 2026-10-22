@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth, HOME } from '../../context/AuthContext';
 import { Splash } from '../../components/layout/ProtectedRoute';
 
-/** Landing page after Google sign-in: the server already set the cookie; load the user and go home. */
 export default function AuthCallback() {
   const { refresh, user, loading } = useAuth();
   const navigate = useNavigate();
