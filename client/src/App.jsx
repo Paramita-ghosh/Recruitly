@@ -38,7 +38,7 @@ import AuthCallback from './pages/public/AuthCallback';
 // import InterviewerAvailability from './pages/interviewer/Availability';
 // import { InterviewerProfile, InterviewerModes } from './pages/interviewer/Profile';
 
-// import CandidateDashboard from './pages/candidate/Dashboard';
+   import CandidateDashboard from './pages/candidate/Dashboard';
 // import CandidateDrives from './pages/candidate/Drives';
 // import CandidateProgress from './pages/candidate/Progress';
 // import CandidateAvailability from './pages/candidate/Availability';
@@ -93,9 +93,9 @@ export default function App() {
           <Route path="notifications" element={<NotificationsPage />} />
           <Route path="audit" element={<Audit />} />
           <Route path="settings" element={<Settings />} />
-        </Route>
+        </Route> */}
 
-        <Route path="/interviewer" element={<ProtectedRoute roles={['interviewer']} />}>
+        {/* <Route path="/interviewer" element={<ProtectedRoute roles={['interviewer']} />}>
           <Route index element={<InterviewerDashboard />} />
           <Route path="interviews" element={<InterviewerInterviews />} />
           <Route path="interviews/:id" element={<InterviewDetail />} />
@@ -104,19 +104,19 @@ export default function App() {
           <Route path="modes" element={<InterviewerModes />} />
           <Route path="profile" element={<InterviewerProfile />} />
           <Route path="notifications" element={<NotificationsPage />} />
-        </Route>
+        </Route> */}
 
         <Route path="/candidate" element={<ProtectedRoute roles={['candidate']} />}>
           <Route index element={<CandidateDashboard />} />
-          <Route path="drives" element={<CandidateDrives />} />
+          {/* <Route path="drives" element={<CandidateDrives />} />
           <Route path="interviews" element={<InterviewsPage role="candidate" />} />
           <Route path="progress" element={<CandidateProgress />} />
           <Route path="availability" element={<CandidateAvailability />} />
           <Route path="profile" element={<CandidateProfile />} />
-          <Route path="notifications" element={<NotificationsPage />} />
+          <Route path="notifications" element={<NotificationsPage />} /> */}
         </Route>
 
-        <Route path="/company" element={<ProtectedRoute roles={['company']} />}>
+        {/* <Route path="/company" element={<ProtectedRoute roles={['company']} />}>
           <Route index element={<CompanyDashboard />} />
           <Route path="drives" element={<CompanyDrives />} />
           <Route path="candidates" element={<CompanyCandidates />} />
