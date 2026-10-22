@@ -1,1 +1,116 @@
 @import "tailwindcss";
+
+@theme {
+  /* Theme colors */
+  --color-app: rgb(var(--bg));
+  --color-card: rgb(var(--card));
+  --color-ink: rgb(var(--text));
+  --color-muted: rgb(var(--muted));
+  --color-line: rgb(var(--border));
+  --color-soft: rgb(var(--soft));
+  --color-brand: #3563E9;
+  --color-brand-700: #244BC0;
+  --color-bad: rgb(var(--error));
+
+  --radius-xl2: 1rem;
+  --shadow-card: 0 4px 18px rgb(15 23 42 / 0.06);
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --bg: 245 247 251;
+  --card: 255 255 255;
+  --text: 23 32 51;
+  --muted: 102 112 133;
+  --border: 229 234 242;
+  --soft: 238 242 249;
+  --success: 22 134 92;
+  --error: 217 45 58;
+}
+.dark {
+  --bg: 11 17 32;
+  --card: 19 28 48;
+  --text: 233 238 249;
+  --muted: 148 160 184;
+  --border: 40 53 80;
+  --soft: 26 37 61;
+  --success: 52 190 133;
+  --error: 247 110 120;
+}
+
+html { color-scheme: light; }
+html.dark { color-scheme: dark; }
+body { @apply bg-app text-ink font-sans antialiased; }
+* { @apply border-line; }
+::selection { background: rgba(53, 99, 233, .25); }
+
+
+@layer components {
+  .card {
+    @apply rounded-xl2 border border-line bg-card shadow-card;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-line bg-card px-3 py-2 text-sm text-ink placeholder:text-muted/70 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/25 disabled:opacity-60;
+  }
+
+  .label {
+    @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-muted;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost,
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 disabled:cursor-not-allowed disabled:opacity-55;
+  }
+
+  .btn-primary {
+    @apply bg-brand text-white shadow-sm hover:bg-brand-700 active:scale-[.99];
+  }
+
+  .btn-secondary {
+    @apply border border-line bg-card text-ink hover:bg-soft;
+  }
+
+  .btn-ghost {
+    @apply text-muted hover:bg-soft hover:text-ink;
+  }
+
+  .btn-danger {
+    @apply bg-bad text-white hover:opacity-90;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+
+  .th {
+    @apply px-4 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-muted;
+  }
+
+  .td {
+    @apply px-4 py-3 text-sm;
+  }
+}
+
+
+/* FullCalendar theming */
+.fc { --fc-border-color: rgb(var(--border)); --fc-page-bg-color: transparent; --fc-neutral-bg-color: rgb(var(--soft)); --fc-list-event-hover-bg-color: rgb(var(--soft)); --fc-today-bg-color: rgba(53, 99, 233, .07); --fc-now-indicator-color: #D92D3A; font-size: 13px; }
+.fc .fc-toolbar-title { font-size: 1.05rem; font-weight: 700; }
+.fc .fc-button { background: rgb(var(--card)); color: rgb(var(--text)); border: 1px solid rgb(var(--border)); box-shadow: none; text-transform: capitalize; font-weight: 600; font-size: 12px; padding: .4rem .75rem; }
+.fc .fc-button:hover { background: rgb(var(--soft)); color: rgb(var(--text)); }
+.fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active { background: #3563E9; border-color: #3563E9; color: #fff; }
+.fc .fc-button:focus { box-shadow: 0 0 0 2px rgba(53, 99, 233, .3) !important; }
+.fc .fc-col-header-cell-cushion, .fc .fc-timegrid-slot-label-cushion, .fc .fc-daygrid-day-number { color: rgb(var(--muted)); font-weight: 600; }
+.fc-event { border-radius: 6px; border-width: 0; cursor: pointer; padding: 1px 3px; }
+.fc-theme-standard td, .fc-theme-standard th, .fc-theme-standard .fc-scrollgrid { border-color: rgb(var(--border)); }
+
+.skeleton { position: relative; overflow: hidden; @apply rounded-md bg-soft; }
+.skeleton::after { content: ''; position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent); animation: shimmer 1.4s infinite; }
+.dark .skeleton::after { background: linear-gradient(90deg, transparent, rgba(255,255,255,.07), transparent); }
+
+.recharts-tooltip-wrapper { outline: none; }
+.scroll-thin::-webkit-scrollbar { height: 8px; width: 8px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: rgb(var(--border)); border-radius: 8px; }
