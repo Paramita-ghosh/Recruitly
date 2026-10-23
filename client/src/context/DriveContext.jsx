@@ -5,7 +5,6 @@ import { useAuth } from './AuthContext';
 const Ctx = createContext(null);
 export const useDrive = () => useContext(Ctx);
 
-/** Staff (coordinator / company) work inside one "current drive" at a time; the choice is remembered. */
 export function DriveProvider({ children }) {
   const { user } = useAuth();
   const [drives, setDrives] = useState([]);
