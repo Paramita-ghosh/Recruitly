@@ -15,7 +15,6 @@ const ok = (res, data, status = 200) => res.status(status).json({ success: true,
 
 router.get('/candidates', authorize('coordinator'), asyncHandler(async (req, res) => ok(res, await av.listUsers('candidate', req.query.search ? String(req.query.search).slice(0, 80) : null))));
 
-/** Coordinators see any candidate; a company only sees candidates inside its own drives. */
 router.get('/candidates/:id', authorize('coordinator', 'company'), asyncHandler(async (req, res) => {
   if (req.user.role === 'company') {
     const link = await query(`SELECT 1 FROM drive_candidates dc JOIN recruitment_drives d ON d.id = dc.drive_id WHERE dc.candidate_id = $1 AND d.company_id = $2`, [req.params.id, req.user.companyId]);

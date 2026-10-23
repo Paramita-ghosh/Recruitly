@@ -1,15 +1,9 @@
-// Independent hard-constraint validator. Deliberately does NOT reuse ScheduleState or the option
-// generator so that it can catch bugs in the solver, in coordinator overrides and in reschedule plans.
+
 
 import { MIN, covers, overlaps } from './timeUtils.js';
 import { permittedModes, roomNeedFor } from './core.js';
 
-/**
- * assignments: [{ key, candidateId, roundId, start, end, mode, roomId, interviewerIds }]
- * options.existing  : fixed sessions that are assumed valid but still constrain the assignments
- * options.focusKeys : only report problems involving these keys (default: all assignments)
- * Returns { valid, violations: [{ code, key, message }] }
- */
+
 export function validateSchedule(p, assignments, options = {}) {
   const existing = options.existing ?? p.existing ?? [];
   const focus = options.focusKeys ? new Set(options.focusKeys) : null;

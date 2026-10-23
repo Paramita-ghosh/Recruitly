@@ -13,7 +13,7 @@ export async function getAvailability(userId) {
   return { rules, exceptions };
 }
 
-/** Replace the user's weekly pattern. Adjacent blocks are merged so the grid round-trips cleanly. */
+
 export async function saveRules(user, userId, rules, ip) {
   assertSelfOrCoordinator(user, userId);
   const norm = [];

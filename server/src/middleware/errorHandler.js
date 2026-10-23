@@ -22,7 +22,7 @@ export function errorHandler(err, req, res, _next) {
   if (err?.type === 'entity.parse.failed') return res.status(400).json({ success: false, error: { message: 'Malformed JSON body' } });
   if (err?.code === 'LIMIT_FILE_SIZE') return res.status(413).json({ success: false, error: { message: 'File is too large (max 2 MB).' } });
 
-  // PostgreSQL errors are mapped to safe messages; SQL text is never returned.
+ 
   if (err?.code === '23P01')
     return res.status(409).json({ success: false, error: { message: 'That time is no longer available. Please choose another slot.', code: 'SLOT_TAKEN' } });
   if (err?.code === '23505') return res.status(409).json({ success: false, error: { message: 'A record with these details already exists.' } });

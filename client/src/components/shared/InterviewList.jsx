@@ -16,7 +16,7 @@ export function IcsLink({ id, size = 'sm', children = 'Add to calendar' }) {
   );
 }
 
-
+export function Where({ s }) {
   if (s.mode === 'offline') return <span className="text-sm text-muted">{s.roomName ? `${s.roomName}${s.roomLocation ? ` · ${s.roomLocation}` : ''}` : 'Room to be confirmed'}</span>;
   if (!s.meetingUrl) return <span className="text-sm text-muted">Meeting link pending</span>;
   return (

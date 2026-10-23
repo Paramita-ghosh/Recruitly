@@ -5,7 +5,7 @@ import { fmtWhen } from '../utils/format.js';
 import { pollPendingConferences } from '../services/calendar.service.js';
 import { processOutbox } from '../services/notification.service.js';
 
-/** Sends 24h and 1h reminders. The dupdatedupe key makes the job safe to run repeatedly / on several instances. */
+
 export async function sendReminders() {
   let sent = 0;
   for (const [label, from, to] of [['24h', 23.5, 24.5], ['1h', 0.5, 1.5]]) {
