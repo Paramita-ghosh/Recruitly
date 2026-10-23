@@ -11,7 +11,7 @@ import usersRoutes from './routes/users.routes.js';
 //import companiesRoutes from './routes/companies.routes.js';
 // import drivesRoutes from './routes/drives.routes.js';
 // import roomsRoutes from './routes/rooms.routes.js';
-// import candidatesRoutes from './routes/candidates.routes.js';
+   import candidatesRoutes from './routes/candidates.routes.js';
 // import interviewersRoutes from './routes/interviewers.routes.js';
 // import availabilityRoutes from './routes/availability.routes.js';
 // import schedulingRoutes from './routes/scheduling.routes.js';
@@ -44,7 +44,7 @@ export function createApp() {
      app.use('/api', usersRoutes);
 //   app.use('/api', drivesRoutes);
 //   app.use('/api', roomsRoutes);
-//   app.use('/api', candidatesRoutes);
+     app.use('/api', candidatesRoutes);
 //   app.use('/api', interviewersRoutes);
 //   app.use('/api', schedulingRoutes);
 //   app.use('/api', evaluationsRoutes);
