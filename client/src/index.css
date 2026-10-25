@@ -15,6 +15,19 @@
   --radius-xl2: 1rem;
   --shadow-card: 0 4px 18px rgb(15 23 42 / 0.06);
   --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy: rgb(var(--navy));
+  --color-on-navy: rgb(var(--on-navy));
+  --color-violet: #7C5CFC;
+  --color-good: rgb(var(--success));
+  --color-warn: #D97706;
+
+  --animate-fadeUp: fadeUp .4s ease-out both;
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: none; }
+  }
+
 }
 
 :root {
@@ -26,6 +39,8 @@
   --soft: 238 242 249;
   --success: 22 134 92;
   --error: 217 45 58;
+  --navy: 255 255 255;
+  --on-navy: 23 32 51;
 }
 .dark {
   --bg: 11 17 32;
@@ -36,6 +51,8 @@
   --soft: 26 37 61;
   --success: 52 190 133;
   --error: 247 110 120;
+   --navy: 11 17 32;
+  --on-navy: 233 238 249;
 }
 
 html { color-scheme: light; }

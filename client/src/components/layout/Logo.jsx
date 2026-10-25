@@ -8,7 +8,7 @@ export default function Logo({ light, size = 32, className }) {
         <rect width="64" height="64" rx="16" fill="url(#rg)" />
         <path d="M20 46V18h14a10 10 0 0 1 3 19.6L45 46h-8l-6.6-7.4H27V46z M27 32h7a4 4 0 0 0 0-8h-7z" fill="#fff" fillRule="evenodd" />
       </svg>
-      <span className={cn('text-xl font-extrabold tracking-tight', light ? 'text-white' : 'text-ink')}>Recruit<span className="text-[#7FA2FF]">ly</span></span>
+      <span className="text-xl font-extrabold tracking-tight text-ink">Recruit<span className="text-brand">ly</span></span>
     </span>
   );
 }

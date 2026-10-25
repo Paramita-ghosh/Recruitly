@@ -84,16 +84,16 @@ export default function Landing() {
         </div>
       </section>
 
-      <section id="how" className="bg-navy py-20 text-white">
-        <div className="mx-auto max-w-6xl px-5">
-          <div className="mx-auto max-w-2xl text-center"><p className="text-xs font-bold uppercase tracking-widest text-[#7FA2FF]">How it works</p><h2 className="mt-2 text-3xl font-extrabold tracking-tight">From chaos to calendar in four steps</h2></div>
-          <div className="mt-12 grid gap-5 md:grid-cols-4">
-            {[['1', 'Collect availability', 'Candidates and interviewers paint their free time on a weekly grid.'], ['2', 'Generate', 'The solver builds a schedule and proves what it can and cannot place.'], ['3', 'Review & publish', 'Check the quality score, fix conflicts, publish with one click.'], ['4', 'Evaluate & advance', 'Blinded scoring decides who moves to the next round automatically.']].map(([n, t, d]) => (
-              <div key={n} className="rounded-2xl border border-white/10 bg-white/5 p-6"><span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-sm font-extrabold">{n}</span><h3 className="mt-4 font-bold">{t}</h3><p className="mt-2 text-sm text-white/65">{d}</p></div>
-            ))}
-          </div>
+     <section id="how" className="border-y border-line bg-soft py-20">
+      <div className="mx-auto max-w-6xl px-5">
+        <div className="mx-auto max-w-2xl text-center"><p className="text-xs font-bold uppercase tracking-widest text-brand">How it works</p><h2 className="mt-2 text-3xl font-extrabold tracking-tight text-ink">From chaos to calendar in four steps</h2></div>
+        <div className="mt-12 grid gap-5 md:grid-cols-4">
+          {[['1', 'Collect availability', 'Candidates and interviewers paint their free time on a weekly grid.'], ['2', 'Generate', 'The solver builds a schedule and proves what it can and cannot place.'], ['3', 'Review & publish', 'Check the quality score, fix conflicts, publish with one click.'], ['4', 'Evaluate & advance', 'Blinded scoring decides who moves to the next round automatically.']].map(([n, t, d]) => (
+            <div key={n} className="card p-6"><span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-sm font-extrabold text-white">{n}</span><h3 className="mt-4 font-bold text-ink">{t}</h3><p className="mt-2 text-sm text-muted">{d}</p></div>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
 
       <section id="roles" className="mx-auto max-w-6xl px-5 py-20">
         <div className="mx-auto max-w-2xl text-center"><p className="text-xs font-bold uppercase tracking-widest text-brand">Who it's for</p><h2 className="mt-2 text-3xl font-extrabold tracking-tight">A tailored workspace for every role</h2></div>
