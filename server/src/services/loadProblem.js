@@ -1,7 +1,7 @@
 // Loads everything the scheduling engine needs for one drive from PostgreSQL and normalises it.
 import { createProblem } from '../scheduling/core.js';
-// import { buildDays } from '../scheduling/timeUtils.js';
-// import { resolveAvailability } from '../scheduling/availability.js';
+import { buildDays } from '../scheduling/timeUtils.js';
+import { resolveAvailability } from '../scheduling/availability.js';
 import { notFound } from '../utils/httpError.js';
 
 /** Runs promises-in-waiting one after another (a pg transaction client cannot run queries concurrently). */

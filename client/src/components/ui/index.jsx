@@ -139,7 +139,7 @@ export function Modal({ open, onClose, title, children, footer, size = 'md' }) {
   if (!open) return null;
   const w = { sm: 'max-w-md', md: 'max-w-xl', lg: 'max-w-3xl', xl: 'max-w-5xl' }[size];
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-end justify-center bg-navy/50 p-0 backdrop-blur-sm sm:items-center sm:p-4" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 p-0 backdrop-blur-sm sm:items-center sm:p-4" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
       <div role="dialog" aria-modal="true" aria-label={title} className={cn('card flex max-h-[92vh] w-full animate-fadeUp flex-col rounded-b-none shadow-pop sm:rounded-b-xl2', w)}>
         <header className="flex items-center justify-between border-b border-line px-5 py-4">
           <h3 className="text-base font-bold text-ink">{title}</h3>
@@ -187,7 +187,7 @@ export function Table({ columns, rows, rowKey = 'id', onRow, empty, dense }) {
 export function Avatar({ name, size = 36 }) {
   const initials = (name || '?').split(/\s+/).filter(Boolean).slice(0, 2).map((p) => p[0].toUpperCase()).join('');
   const hue = [...(name || '')].reduce((a, c) => a + c.charCodeAt(0), 0) % 4;
-  const bg = ['bg-brand', 'bg-violet', 'bg-teal', 'bg-navy'][hue];
+  const bg = ['bg-brand', 'bg-violet', 'bg-teal', 'bg-[#334155]'][hue];
   return <span style={{ width: size, height: size }} className={cn('grid shrink-0 place-items-center rounded-full text-xs font-bold text-white', bg)}>{initials}</span>;
 }
 
