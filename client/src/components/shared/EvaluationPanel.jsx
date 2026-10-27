@@ -20,6 +20,7 @@ function ScoreButtons({ min, max, value, onChange, disabled }) {
   );
 }
 
+
 export default function EvaluationPanel({ sessionId, role, onDone }) {
   const toast = useToast();
   const st = useAsync(() => get(`/interviews/${sessionId}/evaluation`), [sessionId]);
@@ -61,9 +62,10 @@ export default function EvaluationPanel({ sessionId, role, onDone }) {
         return (
           <div className="space-y-5">
             <Card title={`${v.session.candidateName} · ${v.session.roundName}`} subtitle={`${fmtDateTime(v.session.startsAt)} · ${label(v.session.mode)}`}
-              action={<div className="flex items-center gap-2"><Badge tone="blue">{v.panel.submitted} of {v.panel.size} panelists submitted</Badge><Badge tone={v.result.status === 'passed' ? 'green' : v.result.status === 'failed' ? 'red' : 'gray'}>{label(v.result.status)}</Badge></div>}>
+              action={<div className="flex items-center gap-2"><Badge tone="blue">{v.panel.submitted} of {v.panel.size} panelists submitted</Badge>
+              {v.result && <Badge tone={v.result.status === 'passed' ? 'green' : v.result.status === 'failed' ? 'red' : 'gray'}>{label(v.result.status)}</Badge>}</div>}>
               {v.blinded && <Note tone="info" title={<span className="flex items-center gap-2"><EyeOff size={15} />Evaluation is blinded</span>}>{v.blindedNote || 'Other panelists’ scores and comments stay hidden until every panelist has submitted.'}</Note>}
-              {v.result.finalScore != null && <div className="mt-4 flex items-center gap-4"><div className="text-3xl font-extrabold text-brand">{Math.round(v.result.finalScore)}</div><div className="flex-1"><Progress value={v.result.finalScore} tone={v.result.finalScore >= 60 ? 'ok' : 'amber'} /><p className="mt-1 text-xs text-muted">Weighted average across the panel (0–100)</p></div></div>}
+              {v.result?.finalScore != null && <div className="mt-4 flex items-center gap-4"><div className="text-3xl font-extrabold text-brand">{Math.round(v.result.finalScore)}</div><div className="flex-1"><Progress value={v.result.finalScore} tone={v.result.finalScore >= 60 ? 'ok' : 'amber'} /><p className="mt-1 text-xs text-muted">Weighted average across the panel (0–100)</p></div></div>}
             </Card>
 
             {interviewer && (

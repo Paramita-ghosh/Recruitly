@@ -8,53 +8,44 @@ import Login from './pages/public/Login';
 import Register from './pages/public/Register';
 import ForgotPassword from './pages/public/ForgotPassword';
 import ResetPassword from './pages/public/ResetPassword';
+import Booking from './pages/public/Booking';
 import DemoMeeting from './pages/public/DemoMeeting';
 import AuthCallback from './pages/public/AuthCallback';
 import NotFound from './pages/public/NotFound';
 
 import CoordinatorDashboard from './pages/coordinator/Dashboard';
+import Calendar from './pages/coordinator/Calendar';
+import Generator from './pages/coordinator/Generator';
+import Quality from './pages/coordinator/Quality';
+import Unscheduled from './pages/coordinator/Unscheduled';
+import Reschedule from './pages/coordinator/Reschedule';
+import AvailabilityOverview from './pages/coordinator/AvailabilityOverview';
+import PipelinePage from './pages/coordinator/Pipeline';
+import Evaluations from './pages/coordinator/Evaluations';
 import Drives from './pages/coordinator/Drives';
 import Rounds from './pages/coordinator/Rounds';
 import Rubrics from './pages/coordinator/Rubrics';
 import Rooms from './pages/coordinator/Rooms';
 import Companies from './pages/coordinator/Companies';
+import People from './pages/coordinator/People';
+import Import from './pages/coordinator/Import';
+import Audit from './pages/coordinator/Audit';
+import Settings from './pages/coordinator/Settings';
 
 import InterviewerDashboard from './pages/interviewer/Dashboard';
+import InterviewerInterviews, { InterviewsPage } from './pages/interviewer/Interviews';
+import InterviewDetail from './pages/interviewer/InterviewDetail';
+import InterviewerAvailability from './pages/interviewer/Availability';
+import { InterviewerProfile, InterviewerModes } from './pages/interviewer/Profile';
 
 import CandidateDashboard from './pages/candidate/Dashboard';
+import CandidateDrives from './pages/candidate/Drives';
+import CandidateProgress from './pages/candidate/Progress';
+import CandidateAvailability from './pages/candidate/Availability';
+import CandidateProfile from './pages/candidate/Profile';
 
 import { CompanyDashboard, CompanyDrives, CompanyCandidates, CompanySchedule, CompanyEvaluations, CompanyReports, CompanyProfile } from './pages/company/Pages';
 import { useDrive } from './context/DriveContext';
-
-/* Pages not pasted yet render a placeholder, so every route and sidebar link still opens. Delete a line below once you paste the real page and import it above. */
-import { PageHeader, Card, EmptyState } from './components/ui';
-import { Hammer } from 'lucide-react';
-const Placeholder = ({ name }) => (
-  <div><PageHeader title={name} subtitle="This page is not added to the project yet." /><Card><EmptyState icon={Hammer} title={`${name} - coming soon`} text="Paste this feature's files to enable it." /></Card></div>
-);
-const Booking = () => <Placeholder name="Booking" />;
-const Calendar = () => <Placeholder name="Calendar" />;
-const Generator = () => <Placeholder name="Generator" />;
-const Quality = () => <Placeholder name="Quality" />;
-const Unscheduled = () => <Placeholder name="Unscheduled" />;
-const Reschedule = () => <Placeholder name="Reschedule" />;
-const AvailabilityOverview = () => <Placeholder name="AvailabilityOverview" />;
-const PipelinePage = () => <Placeholder name="PipelinePage" />;
-const Evaluations = () => <Placeholder name="Evaluations" />;
-const People = () => <Placeholder name="People" />;
-const Import = () => <Placeholder name="Import" />;
-const Audit = () => <Placeholder name="Audit" />;
-const Settings = () => <Placeholder name="Settings" />;
-const InterviewerInterviews = () => <Placeholder name="InterviewerInterviews" />;
-const InterviewsPage = () => <Placeholder name="Interviews" />;
-const InterviewDetail = () => <Placeholder name="InterviewDetail" />;
-const InterviewerAvailability = () => <Placeholder name="InterviewerAvailability" />;
-const InterviewerProfile = () => <Placeholder name="InterviewerProfile" />;
-const InterviewerModes = () => <Placeholder name="InterviewerModes" />;
-const CandidateDrives = () => <Placeholder name="CandidateDrives" />;
-const CandidateProgress = () => <Placeholder name="CandidateProgress" />;
-const CandidateAvailability = () => <Placeholder name="CandidateAvailability" />;
-const CandidateProfile = () => <Placeholder name="CandidateProfile" />;
 
 /** Notification links such as /coordinator/drives/<id>/reschedule?run=… select that drive, then open the page. */
 function DriveRedirect({ to }) {
