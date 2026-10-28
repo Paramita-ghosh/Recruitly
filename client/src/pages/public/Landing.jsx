@@ -103,8 +103,7 @@ export default function Landing() {
         <div className="mt-16 overflow-hidden rounded-3xl bg-gradient-to-r from-brand to-violet p-10 text-center text-white shadow-pop">
           <ShieldCheck className="mx-auto mb-3" size={30} />
           <h3 className="text-2xl font-extrabold">Ready to bring order to your interview days?</h3>
-          <p className="mx-auto mt-2 max-w-xl text-white/80">Explore the demo workspace with sample data, or create a candidate account to book an interview.</p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3"><Link to="/login" className="btn bg-white text-brand hover:bg-white/90">Open the demo</Link><Link to="/register" className="btn border border-white/40 text-white hover:bg-white/10">Create account</Link></div>
+          <div className="mt-6 flex flex-wrap justify-center gap-3"><Link to="/register" className="btn border border-white/40 text-white hover:bg-white/10">Create account</Link></div>
         </div>
       </section>
       <footer className="border-t border-line py-8"><div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 text-sm text-muted"><Logo size={24} /><p>© {new Date().getFullYear()} Recruitly. Interview scheduling, without the chaos.</p></div></footer>
