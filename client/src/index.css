@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Theme colors */
   --color-app: rgb(var(--bg));
@@ -22,6 +24,11 @@
   --color-good: rgb(var(--success));
   --color-warn: #D97706;
 
+  --color-ok: rgb(var(--success));
+  --color-teal: #0D9488;
+  --color-amber: #F4B942;
+  --shadow-pop: 0 12px 40px rgba(20, 33, 61, 0.18);
+
   --animate-fadeUp: fadeUp .4s ease-out both;
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(8px); }
@@ -29,6 +36,8 @@
   }
 
 }
+
+@keyframes shimmer { 100% { transform: translateX(100%); } }
 
 :root {
   --bg: 245 247 251;
