@@ -29,7 +29,7 @@ export default function Settings() {
     if (c === 'connected') { toast.success('Google Calendar connected'); cal.reload({ silent: true }); }
     if (c === 'error') toast.error('Google Calendar could not be connected. Check the server log.');
     if (c) setParams({}, { replace: true });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
   const connect = async () => { try { const r = await get('/calendar/google/connect'); window.location.href = r.url; } catch (e) { toast.error(e.userMessage); } };
   return (
     <>
@@ -56,7 +56,6 @@ export default function Settings() {
               {[['light', Sun, 'Light'], ['dark', Moon, 'Dark']].map(([k, I, l]) => <button key={k} onClick={() => theme !== k && toggle()} className={`flex items-center justify-center gap-2 rounded-lg border px-3 py-3 text-sm font-semibold ${theme === k ? 'border-brand bg-brand/10 text-brand' : 'border-line hover:bg-soft'}`}><I size={16} />{l}</button>)}
             </div>
           </Card>
-          <Note tone="info" title="Where do I add API keys?">All keys live in <code>backend/.env</code>. The frontend never needs secrets. See the README, section “API keys & integrations”, for step-by-step instructions.</Note>
         </div>
       </div>
     </>
