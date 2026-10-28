@@ -59,24 +59,6 @@ export default function Login() {
       ) : (
         <p className="mt-4 flex items-start gap-2 text-xs text-muted"><Info size={14} className="mt-0.5 shrink-0" />Google sign-in is not configured on this server. See the README to enable it.</p>
       )}
-
-      {demos.length > 0 && (
-        <div className="mt-8">
-          <Note tone="warn" title="Demo mode is on">
-            <p className="mb-3">One click fills the credentials. These accounts only exist because the server runs in demo mode.</p>
-            <div className="space-y-2.5">
-              {groups.map(([role, list]) => (
-                <div key={role}>
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">{label(role)}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {list.map((d) => <button key={d.email} type="button" onClick={() => fill(d.email)} className="rounded-full border border-line bg-card px-2.5 py-1 text-xs font-semibold text-ink hover:border-brand hover:text-brand" title={d.email}>{d.name}</button>)}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Note>
-        </div>
-      )}
     </AuthShell>
   );
 }
