@@ -230,7 +230,7 @@ Let **n** = candidates, **D** = start times per candidate (days × slots/day), *
 | 6 interviewers, 4 rooms *(demo size)* | 60 | 60 | ✅ complete | ~153 ms | 98.1 |
 | 10 interviewers, 6 rooms | 150 | 150 | ✅ complete | ~1.06 s | 97.7 |
 | 15 interviewers, 8 rooms | 300 | 240 | 🟡 partial (capacity-bound*) | ~9.4 s | 91.7 |
-\ 15 interviewers × 8 interviews/day × 2 days = **240** interviews of capacity, so 240 is the maximum possible — the engine placed every interview that physically fits and explained the rest as `daily_capacity`.
+15 interviewers × 8 interviews/day × 2 days = **240** interviews of capacity, so 240 is the maximum possible — the engine placed every interview that physically fits and explained the rest as `daily_capacity`.
 
 **Reading the numbers:** time grows faster than linearly with n (20→60 candidates is ×3 but ~×8.6 time; 60→150 is ×2.5 but ~×6.9) — consistent with the O(n²) MRV recount. Comfortable up to a few hundred candidates per round; beyond that, schedule in batches by round or by day. ⚠️ The 300-candidate run is slower than the default 4 s search budget because the budget covers the search phase only; explanation generation for unplaced candidates adds to total time.
 ### 🧨 Edge-case conflict resolution
